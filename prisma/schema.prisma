@@ -17,3 +17,42 @@ model Search {
   id   Int    @id @default(autoincrement())
   name String
 }
+
+// prisma/schema.prisma
+
+model Post {
+  id            Int      @id @default(autoincrement()) // 文章 ID
+  title         String // 标题（对应 JSON 中的 title）
+  content       String // 内容（对应 JSON 中的 content）
+  author        String // 作者（对应 JSON 中的 author）
+  image         String // 图片地址（对应 JSON 中的 image）
+  commentNumber Int // 评论数（对应 JSON 中的 commentNumber）
+  likeNumber    Int // 点赞数（对应 JSON 中的 likeNumber）
+  createdAt     DateTime @default(now()) // 创建时间
+  updatedAt     DateTime @updatedAt // 更新时间
+
+  // 定义一对多关系：一篇文章有多个评论
+  comments Comment[] @relation("PostComments") // 导航属性，关联 Comment 模型
+}
+
+model Comment {
+  id        Int      @id @default(autoincrement()) // 评论 ID
+  content   String // 评论内容
+  createdAt DateTime @default(now()) // 评论时间
+
+  // 定义外键：评论属于哪篇文章
+  postId Int // 文章 ID（外键）
+  post   Post @relation("PostComments", fields: [postId], references: [id]) // 关联到 Post 模型的 id 字段
+}
+
+model ListItem {
+  id            Int      @id @default(autoincrement())
+  title         String
+  content       String
+  image         String
+  author        String
+  commentNumber Int
+  likeNumber    Int
+  createdAt     DateTime @default(now()) // 创建时间
+  updatedAt     DateTime @updatedAt // 更新时间
+}
