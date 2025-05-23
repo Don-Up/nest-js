@@ -1,4 +1,4 @@
-import { IsString, IsInt, IsOptional, isIn } from "class-validator";
+import { IsString, IsInt, IsOptional, isIn, IsBoolean } from "class-validator";
 
 export class CreatePostDto {
   @IsString()
@@ -21,4 +21,8 @@ export class CreatePostDto {
   @IsInt()
   @IsOptional()
   likeNumber?: number;
+
+  @IsBoolean()
+  @IsOptional()
+  isPublished?: boolean;
 }

@@ -30,6 +30,7 @@ model Post {
   likeNumber    Int      @default(0) // 点赞数（对应 JSON 中的 likeNumber）
   createdAt     DateTime @default(now()) // 创建时间
   updatedAt     DateTime @updatedAt // 更新时间
+  isPublished   Boolean  @default(false)
 
   // 定义一对多关系：一篇文章有多个评论
   comments Comment[] @relation("PostComments") // 导航属性，关联 Comment 模型

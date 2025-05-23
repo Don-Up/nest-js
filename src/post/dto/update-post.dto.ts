@@ -1,4 +1,4 @@
-import { IsString, IsInt, IsOptional } from 'class-validator';
+import { IsString, IsInt, IsOptional, IsBoolean } from "class-validator";
 
 export class UpdatePostDto {
   @IsString()
@@ -24,4 +24,8 @@ export class UpdatePostDto {
   @IsInt()
   @IsOptional()
   likeNumber?: number;
+
+  @IsBoolean()
+  @IsOptional()
+  isPublished?: boolean;
 }

@@ -18,6 +18,7 @@ export class PostService {
         image: createPostDto.image,
         commentNumber: createPostDto.commentNumber ?? 0,
         likeNumber: createPostDto.likeNumber ?? 0,
+        isPublished: createPostDto.isPublished,
       },
     });
   }
@@ -52,6 +53,7 @@ export class PostService {
         image: updatePostDto.image,
         commentNumber: updatePostDto.commentNumber,
         likeNumber: updatePostDto.likeNumber,
+        isPublished: updatePostDto.isPublished,
       },
     });
   }
