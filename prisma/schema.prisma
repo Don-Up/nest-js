@@ -7,27 +7,27 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
-  id    Int    @id @default(autoincrement())
-  email String @unique
-  name  String
-}
-
 model Search {
   id   Int    @id @default(autoincrement())
   name String
 }
 
-// prisma/schema.prisma
+model User {
+  id    Int    @id @default(autoincrement())
+  email String @unique
+  name  String
+  Post  Post[]
+}
 
 model Post {
   id            Int      @id @default(autoincrement()) // 文章 ID
   title         String // 标题（对应 JSON 中的 title）
   content       String // 内容（对应 JSON 中的 content）
-  author        String // 作者（对应 JSON 中的 author）
-  image         String // 图片地址（对应 JSON 中的 image）
-  commentNumber Int // 评论数（对应 JSON 中的 commentNumber）
-  likeNumber    Int // 点赞数（对应 JSON 中的 likeNumber）
+  authorId      Int // 外键字段
+  author        User     @relation(fields: [authorId], references: [id]) // 关联字段
+  image         String? // 文章封面图片地址（对应 JSON 中的 image）
+  commentNumber Int      @default(0) // 评论数（对应 JSON 中的 commentNumber）
+  likeNumber    Int      @default(0) // 点赞数（对应 JSON 中的 likeNumber）
   createdAt     DateTime @default(now()) // 创建时间
   updatedAt     DateTime @updatedAt // 更新时间
 

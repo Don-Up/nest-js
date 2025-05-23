@@ -1,4 +1,4 @@
-import { IsString, IsInt, IsOptional } from 'class-validator';
+import { IsString, IsInt, IsOptional, isIn } from "class-validator";
 
 export class CreatePostDto {
   @IsString()
@@ -7,10 +7,11 @@ export class CreatePostDto {
   @IsString()
   content: string;
 
-  @IsString()
-  author: string;
+  @IsInt()
+  authorId: number;
 
   @IsString()
+  @IsOptional()
   image: string;
 
   @IsInt()

@@ -9,9 +9,9 @@ export class UpdatePostDto {
   @IsOptional()
   content?: string;
 
-  @IsString()
+  @IsInt()
   @IsOptional()
-  author?: string;
+  authorId?: number;
 
   @IsString()
   @IsOptional()

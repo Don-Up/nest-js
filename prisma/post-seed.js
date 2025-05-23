@@ -6,6 +6,8 @@ async function seed() {
   // 清空现有数据（可选，确保每次 seed 时数据是干净的）
   await prisma.comment.deleteMany();
   await prisma.post.deleteMany();
+  // await prisma.$executeRaw`TRUNCATE TABLE "Post" RESTART IDENTITY;`; // 清空表并重置序列
+
 
   // 创建一些示例文章
   const posts = await Promise.all([
@@ -13,7 +15,7 @@ async function seed() {
       data: {
         title: 'First Post',
         content: 'This is the content of the first post.',
-        author: 'John Doe',
+        authorId: 1,
         image: 'https://example.com/image1.jpg',
         commentNumber: 5,
         likeNumber: 10,
@@ -25,7 +27,7 @@ async function seed() {
       data: {
         title: 'Second Post',
         content: 'This is the content of the second post.',
-        author: 'Jane Smith',
+        authorId: 1,
         image: 'https://example.com/image2.jpg',
         commentNumber: 3,
         likeNumber: 8,

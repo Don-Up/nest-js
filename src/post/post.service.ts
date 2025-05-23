@@ -14,7 +14,7 @@ export class PostService {
       data: {
         title: createPostDto.title,
         content: createPostDto.content,
-        author: createPostDto.author,
+        authorId: createPostDto.authorId,
         image: createPostDto.image,
         commentNumber: createPostDto.commentNumber ?? 0,
         likeNumber: createPostDto.likeNumber ?? 0,
@@ -48,7 +48,7 @@ export class PostService {
       data: {
         title: updatePostDto.title,
         content: updatePostDto.content,
-        author: updatePostDto.author,
+        authorId: updatePostDto.authorId,
         image: updatePostDto.image,
         commentNumber: updatePostDto.commentNumber,
         likeNumber: updatePostDto.likeNumber,
