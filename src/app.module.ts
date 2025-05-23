@@ -8,9 +8,10 @@ import { HomeModule } from './home/home.module';
 import { PostModule } from './post/post.module';
 import { ListModule } from './list/list.module';
 import { FileUploadModule } from './file-upload/file-upload.module';
+import { ArticleModule } from './article/article.module';
 
 @Module({
-  imports: [SearchModule, PrismaModule, UserModule, HomeModule, PostModule, ListModule, FileUploadModule],
+  imports: [SearchModule, PrismaModule, UserModule, HomeModule, PostModule, ListModule, FileUploadModule, ArticleModule],
   controllers: [AppController],
   providers: [AppService],
 })

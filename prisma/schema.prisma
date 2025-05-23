@@ -56,3 +56,10 @@ model ListItem {
   createdAt     DateTime @default(now()) // 创建时间
   updatedAt     DateTime @updatedAt // 更新时间
 }
+
+model Article {
+  id        Int      @id @default(autoincrement())
+  content   String   @db.Text
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
