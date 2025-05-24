@@ -15,6 +15,7 @@ export class ArticleService {
     return {
       id: savedArticle.id,
       content: savedArticle.content,
+      html: savedArticle.html,
       createdAt: savedArticle.createdAt,
       updatedAt: savedArticle.updatedAt,
     };

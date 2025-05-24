@@ -14,6 +14,7 @@ export class PostService {
       data: {
         title: createPostDto.title,
         content: createPostDto.content,
+        html: createPostDto.html,
         authorId: createPostDto.authorId,
         image: createPostDto.image,
         commentNumber: createPostDto.commentNumber ?? 0,
@@ -49,6 +50,7 @@ export class PostService {
       data: {
         title: updatePostDto.title,
         content: updatePostDto.content,
+        html: updatePostDto.html,
         authorId: updatePostDto.authorId,
         image: updatePostDto.image,
         commentNumber: updatePostDto.commentNumber,

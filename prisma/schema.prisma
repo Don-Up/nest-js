@@ -23,6 +23,7 @@ model Post {
   id            Int      @id @default(autoincrement()) // 文章 ID
   title         String // 标题（对应 JSON 中的 title）
   content       String // 内容（对应 JSON 中的 content）
+  html          String
   authorId      Int // 外键字段
   author        User     @relation(fields: [authorId], references: [id]) // 关联字段
   image         String? // 文章封面图片地址（对应 JSON 中的 image）
@@ -60,7 +61,8 @@ model ListItem {
 
 model Article {
   id        Int      @id @default(autoincrement())
-  content   String   @db.Text
+  content   String   @default("") @db.Text
+  html      String   @default("") @db.Text
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }

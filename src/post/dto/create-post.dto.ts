@@ -7,6 +7,9 @@ export class CreatePostDto {
   @IsString()
   content: string;
 
+  @IsString()
+  html: string;
+
   @IsInt()
   authorId: number;
 

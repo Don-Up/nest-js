@@ -15,6 +15,7 @@ async function seed() {
       data: {
         title: 'First Post',
         content: 'This is the content of the first post.',
+        html: '<p>This is the content of the first post.</p>',
         authorId: 1,
         image: 'https://example.com/image1.jpg',
         commentNumber: 5,
@@ -27,6 +28,7 @@ async function seed() {
       data: {
         title: 'Second Post',
         content: 'This is the content of the second post.',
+        html: '<p>This is the content of the second post.</p>',
         authorId: 1,
         image: 'https://example.com/image2.jpg',
         commentNumber: 3,

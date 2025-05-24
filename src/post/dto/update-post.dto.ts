@@ -9,6 +9,10 @@ export class UpdatePostDto {
   @IsOptional()
   content?: string;
 
+  @IsString()
+  @IsOptional()
+  html?: string;
+
   @IsInt()
   @IsOptional()
   authorId?: number;

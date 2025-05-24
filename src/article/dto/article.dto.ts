@@ -9,6 +9,7 @@ export class CreateArticleDto {
 export class ArticleResponseDto {
   id: number;
   content: string;
+  html: string;
   createdAt: Date;
   updatedAt: Date;
 }
