@@ -1,4 +1,4 @@
-import { Controller, Get, Post as HttpPost, Put, Delete, Body, Param, NotFoundException } from '@nestjs/common';
+import { Controller, Get, Post as HttpPost, Put, Delete, Body, Param, NotFoundException, Patch } from "@nestjs/common";
 import { PostService } from './post.service';
 import { CreatePostDto } from './dto/create-post.dto';
 import { UpdatePostDto } from './dto/update-post.dto';
@@ -30,7 +30,7 @@ export class PostController {
   }
 
   // 更新文章
-  @Put(':id')
+  @Patch(':id')
   async update(@Param('id') id: string, @Body() updatePostDto: UpdatePostDto) {
     const post = await this.postService.update(+id, updatePostDto);
     if (!post) {
